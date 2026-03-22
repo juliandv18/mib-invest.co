@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MIB Invest – Agencia de Proyectos y Realidades</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blanco:#eaeaea;--inox:#acaba9;--cinza:#75706f;--chumbo:#2c2c2c;--preto:#121212;--border:#d4d3d1;--r:24px;--rl:40px;}
+html{scroll-behavior:smooth}
+body{font-family:'Sora',sans-serif;background:var(--blanco);color:var(--chumbo);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--blanco)}::-webkit-scrollbar-thumb{background:var(--inox);border-radius:4px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:center}
+.nav-inner{width:100%;max-width:1160px;display:flex;align-items:center;justify-content:space-between;background:rgba(18,18,18,.8);backdrop-filter:blur(20px);border-radius:100px;padding:.7rem 1rem .7rem 1.6rem;border:1px solid rgba(172,171,169,.15);transition:all .4s}
+nav.sc .nav-inner{background:rgba(234,234,234,.94);border-color:var(--border)}
+.logo-img{height:26px;width:auto;filter:invert(1);transition:filter .3s}
+nav.sc .logo-img{filter:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:rgba(234,234,234,.65);font-size:.8rem;font-weight:500;transition:color .2s}
+nav.sc .nav-links a{color:var(--cinza)}
+.nav-links a:hover{color:var(--blanco)}
+nav.sc .nav-links a:hover{color:var(--preto)}
+.nav-cta{background:var(--blanco);color:var(--preto);padding:.55rem 1.4rem;border-radius:100px;font-size:.78rem;font-weight:700;text-decoration:none;transition:all .25s;white-space:nowrap}
+nav.sc .nav-cta{background:var(--preto);color:var(--blanco)}
+.nav-cta:hover{transform:scale(1.05)}
+
+/* HERO */
+.hero{min-height:100svh;background:var(--preto);padding:0;position:relative;overflow:hidden;display:flex;align-items:center;}
+.hero-inner{display:grid;grid-template-columns:1fr;gap:0;align-items:flex-start;position:relative;z-index:1;width:100%;max-width:1400px;margin:0 auto;padding:8rem 4rem 4rem;min-height:100svh;}
+.hero-text-col{display:flex;flex-direction:column;justify-content:center;}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.b1{width:55vw;height:55vw;max-width:680px;max-height:680px;background:radial-gradient(circle,#acaba920,transparent 70%);top:-15%;right:-12%;animation:bm 16s ease-in-out infinite}
+.b2{width:38vw;height:38vw;max-width:480px;max-height:480px;background:radial-gradient(circle,#75706f18,transparent 70%);bottom:-8%;left:-8%;animation:bm 12s ease-in-out infinite reverse 3s}
+@keyframes bm{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(3vw,-3vh) scale(1.05)}70%{transform:translate(-2vw,2vh) scale(.97)}}
+.badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(172,171,169,.1);border:1px solid rgba(172,171,169,.18);border-radius:100px;padding:.45rem 1.1rem;font-size:.72rem;font-weight:600;color:var(--inox);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2rem;backdrop-filter:blur(10px)}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:#cc4444;flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+.hero h1{font-size:clamp(3rem,7vw,7.5rem);font-weight:800;line-height:.93;letter-spacing:-.03em;color:var(--blanco);margin-bottom:1.8rem}
+.ghost{color:rgba(172,171,169,.45);-webkit-text-stroke:1.5px rgba(172,171,169,.45)}
+.serif-hero{font-family:'Lora',serif;font-style:italic;font-weight:500;color:var(--inox)}
+.hero-p{font-size:clamp(.88rem,1.3vw,1.05rem);font-weight:400;line-height:1.8;color:var(--inox);max-width:480px;margin-bottom:2.5rem}
+.hero-btns{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-main{background:var(--blanco);color:var(--preto);padding:.9rem 2rem;border-radius:100px;font-size:.88rem;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.btn-text{color:var(--inox);font-size:.88rem;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:all .2s}
+.btn-text:hover{color:var(--blanco);gap:.7rem}
+.hero-stats{display:flex;gap:.8rem;flex-wrap:nowrap}
+.hstat{background:rgba(172,171,169,.07);border:1px solid rgba(172,171,169,.13);border-radius:20px;padding:1.1rem 1.4rem;backdrop-filter:blur(12px);flex:1;min-width:100px}
+.hstat-n{font-family:'Lora',serif;font-style:italic;font-size:1.9rem;color:var(--blanco);line-height:1;margin-bottom:.3rem;font-weight:400}
+.hstat-l{font-size:.68rem;color:var(--inox);font-weight:500}
+
+/* TICKER */
+.ticker{background:var(--chumbo);overflow:hidden;padding:.8rem 0}
+.tick-track{display:flex;white-space:nowrap;animation:tick 28s linear infinite}
+.tick-i{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#555;padding:0 2rem;flex-shrink:0}
+.tick-d{color:var(--cinza);margin:0 .3rem}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* LAYOUT */
+.wrap{max-width:1160px;margin:0 auto;padding:5rem 1.5rem}
+.card-bg{border-radius:var(--rl);margin:0 1rem;padding:4rem 2rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cinza);margin-bottom:1rem}
+.eyebrow::before{content:'';width:16px;height:1.5px;background:currentColor;border-radius:2px}
+h2.tt{font-size:clamp(2.2rem,5vw,4.5rem);font-weight:800;line-height:.95;letter-spacing:-.03em;color:var(--preto);margin-bottom:1.5rem}
+h2.tt .s{font-family:'Lora',serif;font-style:italic;font-weight:400;color:var(--cinza)}
+h2.tt.dk{color:var(--blanco)}
+h2.tt.dk .s{color:var(--inox)}
+
+/* NOSOTROS */
+.nos-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.nos-desc{font-size:1rem;line-height:1.85;color:var(--cinza);margin-bottom:1.8rem}
+.pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.2rem}
+.pill{background:var(--chumbo);color:var(--blanco);padding:.4rem 1rem;border-radius:100px;font-size:.74rem;font-weight:600}
+.ncards{display:flex;flex-direction:column;gap:.8rem}
+.nc{background:var(--preto);border-radius:var(--r);padding:1.5rem 1.8rem;display:flex;align-items:flex-start;gap:1rem;transition:transform .3s}
+.nc:hover{transform:translateX(6px)}
+.nc-num{font-family:'Lora',serif;font-style:italic;font-size:1.9rem;color:#2a2a2a;line-height:1;min-width:38px;font-weight:400}
+.nc-t{font-size:.85rem;font-weight:700;color:var(--blanco);margin-bottom:.3rem}
+.nc-b{font-size:.8rem;line-height:1.65;color:var(--cinza)}
+
+/* SERVICIOS */
+.srv-bg{background:var(--preto)}
+.srv-hdr{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-bottom:2.5rem}
+.srv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:#1e1e1e;border-radius:20px;overflow:hidden}
+.sc-card{background:#161616;padding:2.2rem 2rem;transition:background .3s;position:relative;overflow:hidden}
+.sc-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 80%,rgba(172,171,169,.05),transparent 60%);opacity:0;transition:opacity .3s}
+.sc-card:hover{background:#1c1c1c}
+.sc-card:hover::after{opacity:1}
+.sc-n{font-family:'Lora',serif;font-style:italic;font-size:2.8rem;color:#242424;line-height:1;margin-bottom:1rem;font-weight:400}
+.sc-t{font-size:1rem;font-weight:700;color:var(--blanco);line-height:1.3;margin-bottom:.7rem}
+.sc-b{font-size:.8rem;line-height:1.7;color:var(--cinza);margin-bottom:1.2rem}
+.sc-tag{font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#3a3a3a;border:1px solid #252525;padding:.28rem .7rem;border-radius:100px}
+
+/* MANIFIESTO */
+.man-bg{background:var(--chumbo)}
+.man-t{font-size:clamp(2.4rem,6vw,6rem);font-weight:800;line-height:.9;letter-spacing:-.03em;color:var(--blanco);margin-bottom:3rem;max-width:800px}
+.man-t .faded{color:#3a3a3a}
+.man-t .si{font-family:'Lora',serif;font-style:italic;font-weight:400}
+.man-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.man-line{border-left:2px solid #3a3a3a;padding-left:1.4rem;transition:border-color .3s}
+.man-line:hover{border-color:var(--inox)}
+.man-line p{font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--inox);line-height:1.65}
+.man-line small{display:block;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#474747;margin-top:.5rem;font-family:'Sora',sans-serif;font-style:normal}
+
+/* VS */
+.vs-wrap{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:1rem;margin-top:3rem}
+.vs{background:var(--blanco);border:1px solid var(--border);border-radius:var(--r);padding:2rem 1.8rem;transition:transform .3s}
+.vs:hover{transform:translateY(-4px)}
+.vs.mib{background:var(--preto);border-color:var(--preto);transform:scale(1.04)}
+.vs.mib:hover{transform:scale(1.04) translateY(-4px)}
+.vs-lbl{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza);margin-bottom:.5rem}
+.vs.mib .vs-lbl{color:var(--inox)}
+.vs-name{font-size:1.05rem;font-weight:700;color:var(--preto);margin-bottom:1.1rem;line-height:1.2}
+.vs.mib .vs-name{color:var(--blanco)}
+.vs ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.vs li{font-size:.8rem;color:var(--cinza);line-height:1.5;padding-left:1rem;position:relative}
+.vs li::before{content:'—';position:absolute;left:0;color:var(--border)}
+.vs.mib li{color:var(--inox)}
+.vs.mib li::before{content:'✓';color:var(--cinza)}
+
+/* CONTACTO */
+.cto-bg{background:var(--preto)}
+.cto-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.cto-t{font-size:clamp(2.4rem,5vw,5rem);font-weight:800;line-height:.9;letter-spacing:-.03em;color:var(--blanco);margin-bottom:1.4rem}
+.cto-t .si{font-family:'Lora',serif;font-style:italic;font-weight:400;color:var(--cinza)}
+.cto-p{font-size:.93rem;color:var(--cinza);line-height:1.8;margin-bottom:1.8rem}
+.perks{display:flex;flex-direction:column;gap:.75rem}
+.perk{display:flex;align-items:center;gap:.8rem;font-size:.83rem;color:var(--cinza)}
+.perk-d{width:7px;height:7px;border-radius:50%;background:var(--cinza);flex-shrink:0}
+.form-box{background:rgba(255,255,255,.04);border:1px solid rgba(172,171,169,.12);border-radius:var(--r);padding:2.4rem}
+.form-box h3{font-size:1.45rem;font-weight:700;color:var(--blanco);margin-bottom:1.8rem}
+.fg{margin-bottom:1.1rem}
+.fg label{display:block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza);margin-bottom:.45rem}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,.05);color:var(--blanco);border:1px solid rgba(172,171,169,.18);border-radius:14px;padding:.82rem 1.1rem;font-family:'Sora',sans-serif;font-size:.86rem;outline:none;transition:border-color .2s;appearance:none}
+.form-box[style*="background:var(--blanco)"] .fg input,.form-box[style*="background:var(--blanco)"] .fg select,.form-box[style*="background:var(--blanco)"] .fg textarea{background:var(--blanco);color:var(--preto);border-color:var(--border)}
+.form-box[style*="background:var(--blanco)"] .fg label{color:var(--cinza)}
+.form-box[style*="background:var(--blanco)"] .fg input::placeholder,.form-box[style*="background:var(--blanco)"] .fg textarea::placeholder{color:var(--inox)}
+.form-box[style*="background:var(--blanco)"] .fg select option{background:var(--blanco);color:var(--preto)}
+.form-box[style*="background:var(--blanco)"] .btn-form{background:var(--preto);color:var(--blanco)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(172,171,169,.45)}
+.fg input::placeholder,.fg textarea::placeholder{color:#3a3a3a}
+.fg textarea{resize:vertical;min-height:88px}
+.fg select option{background:var(--preto);color:var(--blanco)}
+.btn-form{width:100%;background:var(--blanco);color:var(--preto);padding:1rem;border-radius:100px;border:none;font-family:'Sora',sans-serif;font-size:.86rem;font-weight:700;cursor:pointer;transition:all .25s;margin-top:.5rem}
+.btn-form:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+
+/* FOOTER */
+footer{background:var(--preto);padding:4rem 1.5rem 2rem;margin-top:4rem}
+.ft-inner{max-width:1160px;margin:0 auto}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid #1e1e1e}
+.ft-logo{height:23px;filter:invert(1);margin-bottom:.9rem;display:block}
+.ft-tag{font-size:.83rem;color:#acaba9;line-height:1.7;max-width:230px;font-style:italic;font-family:'Lora',serif}
+.ft-col h4{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#75706f;margin-bottom:.9rem}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.ft-col a{text-decoration:none;color:#acaba9;font-size:.8rem;transition:color .2s}
+.ft-col a:hover{color:var(--blanco)}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:1.5rem}
+.ft-copy{font-size:.72rem;color:#75706f}
+.ft-soc{display:flex;gap:1.5rem}
+.ft-soc a{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#75706f;text-decoration:none;transition:color .2s}
+.ft-soc a:hover{color:var(--blanco)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease}
+.rv.vis{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nos-grid{grid-template-columns:1fr;gap:2.5rem}
+  .man-grid{grid-template-columns:1fr}
+  .vs-wrap{grid-template-columns:1fr}
+  .vs.mib{transform:none}
+  .cto-grid{grid-template-columns:1fr;gap:2.5rem}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .card-bg{margin:0;border-radius:var(--r)}
+  .wrap{padding:4rem 1.2rem}
+  .hero-stats{flex-wrap:wrap}
+}
+@media(max-width:580px){
+  nav{padding:.8rem 1rem}
+  .hero-inner{padding:6rem 1.2rem 3rem}
+  .card-bg{padding:2.5rem 1.2rem}
+  .man-t{font-size:clamp(2rem,10vw,3.5rem)}
+  .cto-t{font-size:clamp(2rem,10vw,3.5rem)}
+  .ft-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <img id="navLogo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAkCAYAAAB/up84AAAFMklEQVR4nO2aXVIbRxDHf6L8bIsTIE4APkCCqLynnOQ9yHmPIT4ACOcAwAUC5AKGEwhOgHwCKzlAIucAKA+9Xdvbmtkv7a6wk3/V1u72zPTMdk/3TPcsrB89dy+q12Sfdcbx2aLOh8WEsgqvqrzz+mpiXLloezaMgANgAWwAj8AfwE8JzY5j4Rubsj3gOOFh6+2b5zNgx9R5AN6a8rtInwvCcpgCF8AsMqbYeJ80xqQf/WjuQ1OnzEx+b/jYy2Li+rpz5Y9k2/r3GO2sxFgbw0aDvIp8sKWPzPvCleuMVfo28IqsAkKzs+eefZ0ywrQ0bX8InEb6bdxKmlSIF2SonKTOAbBFXHmWx7Fp55WHeX+sME7fR4huJ9gboO/6awVNW0hMYJamdU5c/ZAitxFr0naxWa5rVJVx/po867UB7AI/IOuHRR+xUkVr60fTFgLFC56Wj0hnXaz+G9fO1y1yY0Vj8LQPyHq1D8xd+aAC/9poUiGKPMH4Xc1Rcvf+H0RZowCPttyFHdecZSvpBG0oJA/qHhSHiOAXpkwV+gtZv+0R267WGZPelWcfeEl2cs0a6i8XXSvEW0+f7Bphy392bUIupqovD/HS9UdpW8Al8IJUAZ+AG5qbBGvDmOV9/cy9fwy0GxW003jBYuLqTxK6XXt8PFQUg+g1crxaQ5cWogIckxXmgOxa0SPd6ipmwJWrU9Y6YpZVFJdou7mp33p03qVC9IOvkfSJxbEpP0C2u5BVYt0ouSgAtLAuzW4uroDfKvRZG12vISAfe0p2tm0DXyMf/KOh9xDruKb+7CwKVC1i2QZ1Wyc1x1Aa61AIyIz709HGSBJx39EvyLqLOooJzex3ZANDe70kTZfY9ifA8wi/RrAuhUD2g0GUceloc0R51oXUEUaVALKHxCBjstlixfcleNRGVwoJLazvyUbDPWSBt3UvXJ0mBFFFoWeBvrdq8CmNLhQS2qEsEEFfmHeFjZbPHS2UPqkzHssrVg6S27LjqpuqKY0uFOIjYUs/RwQfEo4tC1lYVfhcW0ygNpswZnnM9zX6Lo1nbTIPwJ83zBEr0W2vWpPStR6ufJW+lccQEbgtV0VtAN+SWogd113N/kuhK4V4t2Wfz5Ek43ND92sHlD/v8PA7NFXMHulWG/IVr89+I9I4ulKIdVveBX1C9vg2mXcd4bHqDsvSPD//7JVyRbqmtYauXRYsC2gB3CLJO4s2UhV5bi9mFXPEMs5d+1YW9bYVMimuAsRnscU94WBNcU12wZ25cm0bE2ZIUfdkv2GV4PTJIM8tNMm7TNlnnTqvi6KPLlJKrH2ez6+CMhH/2hTXdMer+Ngeaa7oHbLIq7voIxHyP6RnI0ofJO87pAdNU8T37wKbwF/Iefkw0O9dA2N/0lhFyZPkOkKEoqmLw+R9DPxt6l8iwj4le8h0lLS1h0xD9+4PuZ6EO2vjR7kmsrH95H6ECHIz4XuTlL1Oyr8DfkeEe498j2YAXiGzfxOxlGlStp+0/Yas+wpthTtHG78B1W0bchVTJAn5gjQL+4BE0QcJ/Qz5jj3S6B9EUUPEosakv/HYiNxH73kplS8SeQs2yIyekOaQBohAraBGiEVMEeWQ1H9AFLBr+A0QK/tIenavihvmjGNtVtJ1YBibfbH9/Qz5Hciek9yQ/un+2tD7iDtaIJYzSugfWE7zF41vbVayjkg9D7eIYB9II/crRPh6DjFHcl07ps4UmfFfkQr8FtkMDBDFamA4Qyxx1uTAvzT4WdtGjPB/oLgi/pMC/Bd+8oy0BqOxdQAAAABJRU5ErkJggg==" alt="MIB Invest" class="logo-img"/>
+    <ul class="nav-links">
+      <li><a href="#nosotros">Quiénes somos</a></li>
+      <li><a href="#porquemib">Por qué MIB</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta">Aplica tu proyecto</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="hero-inner">
+    <div class="hero-text-col rv">
+      <div class="badge"><span class="badge-dot"></span>La primera agencia de proyectos</div>
+      <h1>Ideas que<br>se vuelven<br><span class="ghost">empresas</span><br><span class="serif-hero">reales.</span></h1>
+      <p class="hero-p">No somos una incubadora, un fondo ni una consultora. Somos una Agencia de Proyectos. Acompañamos emprendedores desde la chispa inicial hasta la consolidación del negocio.</p>
+      <div class="hero-btns">
+        <a href="#contacto" class="btn-main">Construye con nosotros ↗</a>
+        <a href="#nosotros" class="btn-text">Conócenos →</a>
+      </div>
+      <div class="hero-stats rv d2">
+        <div class="hstat"><div class="hstat-n">360°</div><div class="hstat-l">Visión integral</div></div>
+        <div class="hstat"><div class="hstat-n">5</div><div class="hstat-l">Fases de acompañamiento</div></div>
+        <div class="hstat"><div class="hstat-n">500+</div><div class="hstat-l">Sueños logrados</div></div>
+        <div class="hstat"><div class="hstat-n">∞</div><div class="hstat-l">Potencial de impacto</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="tick-track">
+    <span class="tick-i">Agencia de Proyectos <span class="tick-d">◆</span></span>
+    <span class="tick-i">Estrategia <span class="tick-d">◆</span></span>
+    <span class="tick-i">Ejecución real <span class="tick-d">◆</span></span>
+    <span class="tick-i">Inversión inteligente <span class="tick-d">◆</span></span>
+    <span class="tick-i">Mindset emprendedor <span class="tick-d">◆</span></span>
+    <span class="tick-i">Del sueño a la empresa real <span class="tick-d">◆</span></span>
+    <span class="tick-i">Latinoamérica <span class="tick-d">◆</span></span>
+    <span class="tick-i">Agencia de Proyectos <span class="tick-d">◆</span></span>
+    <span class="tick-i">Estrategia <span class="tick-d">◆</span></span>
+    <span class="tick-i">Ejecución real <span class="tick-d">◆</span></span>
+    <span class="tick-i">Inversión inteligente <span class="tick-d">◆</span></span>
+    <span class="tick-i">Mindset emprendedor <span class="tick-d">◆</span></span>
+    <span class="tick-i">Del sueño a la empresa real <span class="tick-d">◆</span></span>
+    <span class="tick-i">Latinoamérica <span class="tick-d">◆</span></span>
+  </div>
+</div>
+
+<div class="wrap" id="nosotros">
+  <div class="nos-grid">
+    <div>
+      <span class="eyebrow rv">Quiénes somos</span>
+      <h2 class="tt rv d1">Corazón de<br><span class="s">startup.</span><br>Mente de<br><span class="s">corporación.</span></h2>
+      <p class="nos-desc rv d2">En MIB Invest acompañamos a los emprendedores en todas las aristas: lo emocional, lo estratégico, lo operativo, lo financiero y lo creativo. No solo construimos negocios; construimos emprendedores que creen en su poder de impacto.</p>
+      <div class="pills rv d2">
+        <span class="pill">Estrategia</span><span class="pill">Ejecución</span><span class="pill">Inversión</span><span class="pill">Mindset</span><span class="pill">Operación</span>
+      </div>
+      <a href="#contacto" class="btn-main rv d3" style="width:fit-content;background:var(--preto);color:var(--blanco)">Habla con nosotros</a>
+    </div>
+    <div class="ncards">
+      <div class="nc rv"><div class="nc-num">01</div><div><div class="nc-t">Visión 360° + Ejecución</div><div class="nc-b">No solo te decimos qué hacer, lo hacemos contigo. Co-creamos, estructuramos y ejecutamos.</div></div></div>
+      <div class="nc rv d1"><div class="nc-num">02</div><div><div class="nc-t">Capital + Talento</div><div class="nc-b">Invertimos más que dinero: tiempo, conocimiento, equipo y energía. Modelos híbridos.</div></div></div>
+      <div class="nc rv d2"><div class="nc-num">03</div><div><div class="nc-t">Desde la semilla hasta la expansión</div><div class="nc-b">Entramos en cualquier punto de maduración. Siempre con propósito y rentabilidad.</div></div></div>
+      <div class="nc rv d3"><div class="nc-num">04</div><div><div class="nc-t">Aliados de propósito</div><div class="nc-b">Traemos estructura donde hay caos, y claridad donde hay incertidumbre.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<div id="porquemib" style="padding:0 1rem 4rem">
+<div class="card-bg" style="background:var(--preto)">
+<div class="wrap" style="padding-top:0;padding-bottom:0">
+  <span class="eyebrow rv" style="color:var(--cinza)">Por qué MIB</span>
+  <h2 class="tt dk rv d1">Ni incubadora,<br>ni consultora.<br><span class="s">Somos todo eso y más.</span></h2>
+  <div class="vs-wrap">
+    <div class="vs rv">
+      <div class="vs-lbl">Incubadoras / Aceleradoras</div>
+      <div class="vs-name">Asesoría y comunidad</div>
+      <ul><li>Procesos estandarizados</li><li>Programas de 3–6 meses</li><li>Sin ejecución operativa</li><li>Capital semilla reducido</li><li>Enfoque técnico limitado</li></ul>
+    </div>
+    <div class="vs mib rv d1">
+      <div class="vs-lbl">◆ MIB Invest</div>
+      <div class="vs-name">Agencia de Proyectos</div>
+      <ul><li>Modelo personalizado para ti</li><li>Ejecución real contigo</li><li>Desde la idea hasta la escala</li><li>Capital + talento + alma</li><li>Propósito + rentabilidad</li></ul>
+    </div>
+    <div class="vs rv d2">
+      <div class="vs-lbl">Consultoras de negocio</div>
+      <div class="vs-name">Estrategia y diagnóstico</div>
+      <ul><li>Alto costo, bajo acompañamiento</li><li>Entregables sin ejecución</li><li>Enfoque racional y corporativo</li><li>No invierten capital</li><li>Sin acompañamiento emocional</li></ul>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div id="contacto" style="padding:4rem 1rem 4rem;background:var(--blanco)">
+  <div class="card-bg" style="background:var(--blanco);border:1px solid var(--border)">
+    <div class="wrap" style="padding-top:0;padding-bottom:0">
+      <div class="cto-grid">
+        <div>
+          <span class="eyebrow rv">Empieza hoy</span>
+          <h2 class="cto-t rv d1" style="color:var(--preto)">Tu idea<br>merece<br>ser <span class="si">real.</span></h2>
+          <p class="cto-p rv d2" style="color:var(--cinza)">Si tienes una idea, un negocio en marcha o simplemente el sueño de emprender, este es tu primer paso. Cuéntanos tu proyecto.</p>
+          <div class="perks rv d3">
+            <div class="perk" style="color:var(--chumbo)"><span class="perk-d" style="background:var(--chumbo)"></span>Respuesta en menos de 48 horas</div>
+            <div class="perk" style="color:var(--chumbo)"><span class="perk-d" style="background:var(--chumbo)"></span>Primera sesión de diagnóstico sin costo</div>
+            <div class="perk" style="color:var(--chumbo)"><span class="perk-d" style="background:var(--chumbo)"></span>Evaluamos viabilidad emocional y estratégica</div>
+          </div>
+        </div>
+        <div class="form-box rv d2" style="background:var(--preto);border-color:rgba(172,171,169,.15)">
+          <h3>Aplica tu proyecto</h3>
+          <div class="fg"><label>Tu nombre</label><input type="text" placeholder="¿Cómo te llamas?"/></div>
+          <div class="fg"><label>Correo electrónico</label><input type="email" placeholder="tu@correo.com"/></div>
+          <div class="fg"><label>Etapa de tu proyecto</label>
+            <select><option value="">Selecciona una opción</option><option>Solo tengo la idea</option><option>Tengo el proyecto estructurado</option><option>Negocio en marcha que necesita impulso</option><option>Busco inversión o escalamiento</option></select>
+          </div>
+          <div class="fg"><label>Cuéntanos tu proyecto</label><textarea placeholder="¿Cuál es tu idea o sueño? ¿Qué quieres lograr con MIB Invest?"></textarea></div>
+          <button class="btn-form">Enviar mi proyecto ↗</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAkCAYAAAB/up84AAAFMklEQVR4nO2aXVIbRxDHf6L8bIsTIE4APkCCqLynnOQ9yHmPIT4ACOcAwAUC5AKGEwhOgHwCKzlAIucAKA+9Xdvbmtkv7a6wk3/V1u72zPTMdk/3TPcsrB89dy+q12Sfdcbx2aLOh8WEsgqvqrzz+mpiXLloezaMgANgAWwAj8AfwE8JzY5j4Rubsj3gOOFh6+2b5zNgx9R5AN6a8rtInwvCcpgCF8AsMqbYeJ80xqQf/WjuQ1OnzEx+b/jYy2Li+rpz5Y9k2/r3GO2sxFgbw0aDvIp8sKWPzPvCleuMVfo28IqsAkKzs+eefZ0ywrQ0bX8InEb6bdxKmlSIF2SonKTOAbBFXHmWx7Fp55WHeX+sME7fR4huJ9gboO/6awVNW0hMYJamdU5c/ZAitxFr0naxWa5rVJVx/po867UB7AI/IOuHRR+xUkVr60fTFgLFC56Wj0hnXaz+G9fO1y1yY0Vj8LQPyHq1D8xd+aAC/9poUiGKPMH4Xc1Rcvf+H0RZowCPttyFHdecZSvpBG0oJA/qHhSHiOAXpkwV+gtZv+0R267WGZPelWcfeEl2cs0a6i8XXSvEW0+f7Bphy392bUIupqovD/HS9UdpW8Al8IJUAZ+AG5qbBGvDmOV9/cy9fwy0GxW003jBYuLqTxK6XXt8PFQUg+g1crxaQ5cWogIckxXmgOxa0SPd6ipmwJWrU9Y6YpZVFJdou7mp33p03qVC9IOvkfSJxbEpP0C2u5BVYt0ouSgAtLAuzW4uroDfKvRZG12vISAfe0p2tm0DXyMf/KOh9xDruKb+7CwKVC1i2QZ1Wyc1x1Aa61AIyIz709HGSBJx39EvyLqLOooJzex3ZANDe70kTZfY9ifA8wi/RrAuhUD2g0GUceloc0R51oXUEUaVALKHxCBjstlixfcleNRGVwoJLazvyUbDPWSBt3UvXJ0mBFFFoWeBvrdq8CmNLhQS2qEsEEFfmHeFjZbPHS2UPqkzHssrVg6S27LjqpuqKY0uFOIjYUs/RwQfEo4tC1lYVfhcW0ygNpswZnnM9zX6Lo1nbTIPwJ83zBEr0W2vWpPStR6ufJW+lccQEbgtV0VtAN+SWogd113N/kuhK4V4t2Wfz5Ek43ND92sHlD/v8PA7NFXMHulWG/IVr89+I9I4ulKIdVveBX1C9vg2mXcd4bHqDsvSPD//7JVyRbqmtYauXRYsC2gB3CLJO4s2UhV5bi9mFXPEMs5d+1YW9bYVMimuAsRnscU94WBNcU12wZ25cm0bE2ZIUfdkv2GV4PTJIM8tNMm7TNlnnTqvi6KPLlJKrH2ez6+CMhH/2hTXdMer+Ngeaa7oHbLIq7voIxHyP6RnI0ofJO87pAdNU8T37wKbwF/Iefkw0O9dA2N/0lhFyZPkOkKEoqmLw+R9DPxt6l8iwj4le8h0lLS1h0xD9+4PuZ6EO2vjR7kmsrH95H6ECHIz4XuTlL1Oyr8DfkeEe498j2YAXiGzfxOxlGlStp+0/Yas+wpthTtHG78B1W0bchVTJAn5gjQL+4BE0QcJ/Qz5jj3S6B9EUUPEosakv/HYiNxH73kplS8SeQs2yIyekOaQBohAraBGiEVMEeWQ1H9AFLBr+A0QK/tIenavihvmjGNtVtJ1YBibfbH9/Qz5Hciek9yQ/un+2tD7iDtaIJYzSugfWE7zF41vbVayjkg9D7eIYB9II/crRPh6DjFHcl07ps4UmfFfkQr8FtkMDBDFamA4Qyxx1uTAvzT4WdtGjPB/oLgi/pMC/Bd+8oy0BqOxdQAAAABJRU5ErkJggg==" alt="MIB Invest" class="ft-logo"/>
+        <p class="ft-tag">La agencia de proyectos que transforma ideas en empresas y emprendedores en líderes.</p>
+      </div>
+      <div class="ft-col"><h4>Empresa</h4><ul><li><a href="#nosotros">Quiénes somos</a></li><li><a href="#porquemib">Por qué MIB</a></li>
+      <li><a href="#contacto">Contacto</a></li></ul></div>
+      <div class="ft-col"><h4>Servicios</h4><ul><li><a href="#servicios">Construcción de negocios</a></li><li><a href="#servicios">Reestructuración</a></li><li><a href="#servicios">Estrategia financiera</a></li><li><a href="#servicios">Mindset emprendedor</a></li></ul></div>
+      <div class="ft-col"><h4>Redes</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">#OtroMas</a></li></ul></div>
+    </div>
+    <div class="ft-bot">
+      <span class="ft-copy">© 2025 MIB Invest · La primera Agencia de Proyectos de Latinoamérica</span>
+      <div class="ft-soc"><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">#OtroMas</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+const logo=document.getElementById('navLogo');
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY>60;
+  nav.classList.toggle('sc',s);
+  logo.style.filter=s?'none':'invert(1)';
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')});
+},{threshold:.07,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+setTimeout(()=>document.querySelectorAll('.hero .rv').forEach(el=>el.classList.add('vis')),100);
+</script>
+</body>
+</html>
