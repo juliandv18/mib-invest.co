@@ -308,13 +308,37 @@ footer{background:var(--preto);padding:4rem 1.5rem 2rem;margin-top:4rem}
         </div>
         <div class="form-box rv d2" style="background:var(--preto);border-color:rgba(172,171,169,.15)">
           <h3>Aplica tu proyecto</h3>
-          <div class="fg"><label>Tu nombre</label><input type="text" placeholder="¿Cómo te llamas?"/></div>
-          <div class="fg"><label>Correo electrónico</label><input type="email" placeholder="tu@correo.com"/></div>
-          <div class="fg"><label>Etapa de tu proyecto</label>
-            <select><option value="">Selecciona una opción</option><option>Solo tengo la idea</option><option>Tengo el proyecto estructurado</option><option>Negocio en marcha que necesita impulso</option><option>Busco inversión o escalamiento</option></select>
-          </div>
-          <div class="fg"><label>Cuéntanos tu proyecto</label><textarea placeholder="¿Cuál es tu idea o sueño? ¿Qué quieres lograr con MIB Invest?"></textarea></div>
-          <button class="btn-form">Enviar mi proyecto ↗</button>
+         <form action="https://formsubmit.co/mibinvest.co@gmail.com" method="POST">
+
+  <div class="fg">
+    <label>Tu nombre</label>
+    <input type="text" name="nombre" required placeholder="¿Cómo te llamas?"/>
+  </div>
+
+  <div class="fg">
+    <label>Correo electrónico</label>
+    <input type="email" name="email" required placeholder="tu@correo.com"/>
+  </div>
+
+  <div class="fg">
+    <label>Etapa de tu proyecto</label>
+    <select name="etapa" required>
+      <option value="">Selecciona una opción</option>
+      <option>Solo tengo la idea</option>
+      <option>Tengo el proyecto estructurado</option>
+      <option>Negocio en marcha</option>
+      <option>Busco inversión</option>
+    </select>
+  </div>
+
+  <div class="fg">
+    <label>Cuéntanos tu proyecto</label>
+    <textarea name="mensaje" required placeholder="¿Cuál es tu idea?"></textarea>
+  </div>
+
+  <button class="btn-form" type="submit">Enviar mi proyecto ↗</button>
+
+</form>
         </div>
       </div>
     </div>
